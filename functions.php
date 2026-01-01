@@ -22,6 +22,12 @@ function astra_child_style()
 		[],
 		file_exists($tailwind_path) ? filemtime($tailwind_path) : null
 	);
+	wp_enqueue_style(
+		'font-awesome',
+		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
+		array(),
+		'6.5.0'
+	);
 }
 
 add_action('wp_enqueue_scripts', 'astra_child_style');

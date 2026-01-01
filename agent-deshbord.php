@@ -12,10 +12,16 @@ $admin_name = "Admin Name";
     <aside id="sidebar" class="sidebar-transition w-64 bg-slate-900 text-white flex flex-col">
         <div class="h-16 flex items-center justify-between px-4 border-b border-slate-700">
             <span id="logo-text" class="text-xl font-bold truncate">MyPanel</span>
-            <button onclick="toggleSidebar()" class="p-1 hover:bg-slate-800 rounded">
-                <i data-lucide="menu"></i>
-            </button>
+
+            <div onclick="toggleSidebar()" class="p-2 hover:bg-slate-800 rounded cursor-pointer">
+                <!-- Menu Icon -->
+                <i id="menuIcon" class="fa-solid fa-bars text-white text-xl"></i>
+
+                <!-- Close Icon -->
+                <i id="closeIcon" class="fa-solid fa-xmark text-white text-xl hidden"></i>
+            </div>
         </div>
+
 
         <nav class="flex-1 mt-4 px-2 space-y-2">
             <a href="#" class="flex items-center p-3 hover:bg-blue-600 rounded-lg group">
@@ -73,7 +79,6 @@ $admin_name = "Admin Name";
         </main>
     </div>
 </div>
-
 <script>
     // Initialize Lucide Icons
     lucide.createIcons();
@@ -83,21 +88,35 @@ $admin_name = "Admin Name";
         const sidebarTexts = document.querySelectorAll('.sidebar-text');
         const logoText = document.getElementById('logo-text');
 
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
         if (sidebar.classList.contains('w-64')) {
-            // Collapse Sidebar
+            // 👉 Sidebar CLOSE
             sidebar.classList.replace('w-64', 'w-20');
             logoText.classList.add('hidden');
             sidebarTexts.forEach(text => text.classList.add('hidden'));
+
+            // ICON TOGGLE
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+
         } else {
-            // Expand Sidebar
+            // 👉 Sidebar OPEN
             sidebar.classList.replace('w-20', 'w-64');
+
             setTimeout(() => {
                 logoText.classList.remove('hidden');
                 sidebarTexts.forEach(text => text.classList.remove('hidden'));
-            }, 100); // Small delay for smoother look
+            }, 100);
+
+            // ICON TOGGLE
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
         }
     }
 </script>
+
 
 
 
