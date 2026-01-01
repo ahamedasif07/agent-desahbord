@@ -41,7 +41,7 @@ $admin_name = "Admin Name";
     }
 </style>
 
-<div class="  bg-green-500 w-64 overflow-hidden top-6 overflow-y-scroll fixed inset-0">
+<div class="   w-64 overflow-hidden -top-6  fixed inset-0">
 
     <aside id="sidebar"
         class="sidebar-transition w-64 bg-slate-900 text-white flex flex-col flex-shrink-0 h-full border-r border-slate-700">
