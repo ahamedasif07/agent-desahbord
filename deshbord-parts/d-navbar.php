@@ -1,13 +1,12 @@
 <?php
 $admin_name = "Admin Name";
 ?>
-<header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 border-b border-gray-200">
-
+<header
+    class="h-16 bg-white shadow-sm flex items-center justify-between px-8 border-b border-gray-200 fixed w-full z-30">
     <!-- Left Section -->
     <div class="flex items-center space-x-4">
-
         <!-- Menu Icon -->
-        <div class='texty-5xl' id="menuToggle" class="text-2xl  hover:text-indigo-600 transition md:hidden">
+        <div id="menuToggle" class="text-2xl cursor-pointer hover:text-indigo-600 transition md:hidden">
             ☰
         </div>
 
@@ -32,3 +31,15 @@ $admin_name = "Admin Name";
         </button>
     </div>
 </header>
+
+<!-- ================= JS Toggle Feature ================= -->
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    // Sidebar ID যেটা তুমি অন্য component এ রেখেছ
+    const sidebar = document.getElementById("sidebar");
+
+    menuToggle.addEventListener("click", () => {
+        // Tailwind CSS class toggle
+        sidebar.classList.toggle("-translate-x-full");
+    });
+</script>

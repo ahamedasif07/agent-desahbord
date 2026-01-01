@@ -1,4 +1,4 @@
-<div x-data="{toggleMenu: false}">
+<div id="sidebar" x-data="{toggleMenu: false}">
     <div class="w-64 min-h-screen bg-blue-900 relative transition-all duration-1000"
         :class=" !toggleMenu ? 'w-64' : 'w-0' ">
 
