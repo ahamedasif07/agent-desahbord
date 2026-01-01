@@ -5,9 +5,7 @@
 <?php wp_footer(); ?>
 
 <footer class="bg-white py-4 text-center text-gray-600 text-sm border-t">
-    <div class="container mx-auto">
-        &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
-    </div>
+    <?php get_template_part('/deshbord-parts/d-sidebar'); ?>
 </footer>
 
 </body>
