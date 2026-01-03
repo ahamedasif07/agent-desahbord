@@ -40,17 +40,46 @@
             <!-- Location & Status -->
             <div class="w-full!">
                 <h3 class="text-xl! font-semibold! border-b-2! border-blue-500! pb-2! mb-6!">Location & Status</h3>
+
                 <div class="grid! grid-cols-1! md:grid-cols-2! gap-6!">
+
+                    <!-- ১. City/District -->
                     <div class="w-full!">
-                        <label class="block! text-sm! font-medium! text-gray-700!">Location</label>
-                        <input type="text" id="location" name="location" placeholder="e.g. Uttara, Dhaka"
+                        <label class="block! text-sm! font-medium! text-gray-700!">City / District</label>
+                        <input type="text" id="city" name="city" placeholder="e.g. Dhaka"
                             class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
                     </div>
+
+                    <!-- ২. Area -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Area</label>
+                        <input type="text" id="area" name="area" placeholder="e.g. Uttara Sector 4"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                    <!-- ৩. Zip / Post Code -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Zip / Post Code</label>
+                        <input type="text" id="zip_code" name="zip_code" placeholder="e.g. 1230"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                    <!-- ৪. Full Address (House/Road) -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Full Address (House, Road
+                            No.)</label>
+                        <input type="text" id="full_address" name="full_address" placeholder="e.g. House 12, Road 5"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                    <!-- ৫. Map View Link -->
                     <div class="w-full!">
                         <label class="block! text-sm! font-medium! text-gray-700!">Map View Link</label>
                         <input type="url" id="map_link" name="map_link" placeholder="Google Map Link"
                             class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
                     </div>
+
+                    <!-- ৬. Construction Status -->
                     <div class="w-full!">
                         <label class="block! text-sm! font-medium! text-gray-700!">Construction Status</label>
                         <select id="construction_status" name="construction_status"
@@ -60,6 +89,8 @@
                             <option value="Upcoming">Upcoming</option>
                         </select>
                     </div>
+
+                    <!-- ৭. Transaction Type -->
                     <div class="w-full!">
                         <label class="block! text-sm! font-medium! text-gray-700!">Transaction Type</label>
                         <select id="transaction_type" name="transaction_type"
@@ -68,6 +99,7 @@
                             <option value="Resale">Resale</option>
                         </select>
                     </div>
+
                 </div>
             </div>
 
@@ -126,6 +158,81 @@
                             value="Fire Exit" class="w-4! h-4!"> <span>Fire Exit</span></label>
                     <label class="flex! items-center! space-x-2!"><input type="checkbox" name="features"
                             value="Fire Exit" class="w-4! h-4!"> <span>Fire Exit</span></label>
+                </div>
+            </div>
+
+            <!-- Property Media Section -->
+            <div class="w-full!">
+                <h3 class="text-xl! font-semibold! border-b-2! border-blue-500! pb-2! mb-6!">Property Images</h3>
+
+                <div class="space-y-6!">
+
+                    <!-- ১. প্রধান ছবি (Heading Image) -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700! mb-2!">Main Heading Image
+                            (Featured)</label>
+                        <div class="flex! items-center! justify-center! w-full!">
+                            <label
+                                class="flex! flex-col! items-center! justify-center! w-full! h-32! border-2! border-gray-300! border-dashed! rounded-lg! cursor-pointer! bg-gray-50! hover:bg-gray-100!">
+                                <div class="flex! flex-col! items-center! justify-center! pt-5! pb-6!">
+                                    <svg class="w-8! h-8! mb-3! text-gray-400!" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round! stroke-linejoin=" round! stroke-width="2"
+                                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                        </path>
+                                    </svg>
+                                    <p class="text-sm! text-gray-500!">Click to upload main property photo</p>
+                                </div>
+                                <input type="file" name="heading_image" class="hidden!" accept="image/*!" />
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- ২. অন্যান্য ছবি (6 Gallery Images) -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700! mb-4!">Other View Images (Max
+                            6)</label>
+                        <div class="grid! grid-cols-1! sm:grid-cols-2! md:grid-cols-3! gap-4!">
+
+                            <!-- Image Field 1 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_1" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                            <!-- Image Field 2 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_2" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                            <!-- Image Field 3 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_3" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                            <!-- Image Field 4 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_4" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                            <!-- Image Field 5 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_5" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                            <!-- Image Field 6 -->
+                            <div class="w-full!">
+                                <input type="file" name="gallery_image_6" accept="image/*!"
+                                    class="block! w-full! text-sm! text-gray-500! file:mr-4! file:py-2! file:px-4! file:rounded-md! file:border-0! file:text-sm! file:font-semibold! file:bg-blue-50! file:text-blue-700! hover:file:bg-blue-100! border! border-gray-300! rounded-md!">
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

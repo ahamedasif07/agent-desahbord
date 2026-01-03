@@ -243,7 +243,7 @@
         const pages = {
             Creat_New: `
                 <h1 class="font-bold!   text-2xl!">Creat New Property</h1>
-          <?php get_template_part('/deshbord/overview') ?>
+          <?php get_template_part('/deshbord/add-proparty') ?>
             `,
             analytics: `
                 <h1>Analytics Reports</h1>
