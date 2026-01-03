@@ -216,7 +216,7 @@
 
         <!-- Sidebar -->
         <aside id="sidebar">
-            <nav>
+            <nav class="flex! h-full! flex-col! justify-between!  pb-3!">
                 <ul>
                     <!-- onclick ফাংশন দিয়ে আমরা কন্টেন্ট লোড করবো -->
                     <li onclick="loadPage('Creat_New', this)" class="active">Creat New</li>
@@ -224,6 +224,23 @@
                     <li onclick="loadPage('messages', this)">Messages</li>
                     <li onclick="loadPage('settings', this)">Settings</li>
                 </ul>
+
+                <div class="flex! justify-center!">
+                    <button
+                        class="flex! w-[80%]! cursor-pointer! justify-center! items-center! gap-3! bg-red-600! hover:bg-red-700! text-white! font-bold! py-3! px-6! rounded-lg! transition! duration-300! shadow-md!">
+
+                        <!-- নতুন সুন্দর এবং মডার্ন Logout SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" x2="9" y1="12" y2="12"></line>
+                        </svg>
+
+                        <span class="text-base!">Logout</span>
+                    </button>
+                </div>
+
             </nav>
         </aside>
 
@@ -258,24 +275,13 @@
             `,
             messages: `
                 <h1>Messages</h1>
-                <div class="content-card">
-                    <h3>Inbox (2)</h3>
-                    <p><strong>John Doe:</strong> Hey, is the dashboard ready?</p>
-                    <hr style="margin: 10px 0; border: 0; border-top: 1px solid #eee;">
-                    <p><strong>Jane Smith:</strong> Please update the sidebar menu.</p>
-                </div>
+                <?php get_template_part('/deshbord/messages') ?>
+                
             `,
             settings: `
                 <h1>Settings</h1>
-                <div class="content-card">
-                    <h3>Profile Settings</h3>
-                    <p>Change your password or update email.</p>
-                    <button style="padding: 8px 15px; margin-top: 10px; cursor: pointer;">Update</button>
-                </div>
-                <div class="content-card">
-                    <h3>Appearance</h3>
-                    <p>Toggle Dark/Light mode.</p>
-                </div>
+                 <?php get_template_part('/deshbord/setting') ?>
+               
             `
         };
 
