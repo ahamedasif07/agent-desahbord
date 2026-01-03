@@ -161,6 +161,47 @@
                 </div>
             </div>
 
+            <!-- Construction Details Section -->
+            <div class="w-full!">
+                <h3 class="text-xl! font-semibold! border-b-2! border-blue-500! pb-2! mb-6!">Construction Details</h3>
+                <div class="grid! grid-cols-1! md:grid-cols-2! gap-6!">
+
+                    <!-- ১. Year Built / Handover Date -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Year Built / Handover Date</label>
+                        <input type="text" id="handover_date" name="handover_date" placeholder="e.g. 2024 or Dec 2025"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                    <!-- ২. Building Type -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Building Type</label>
+                        <select id="building_type" name="building_type"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                            <option value="RCC">RCC Frame Structure</option>
+                            <option value="Steel">Steel Structure</option>
+                            <option value="Semi-pucka">Semi-pucka</option>
+                        </select>
+                    </div>
+
+                    <!-- ৩. Road Width (Front) -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Front Road Width (ft)</label>
+                        <input type="number" id="road_width" name="road_width" placeholder="e.g. 40"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                    <!-- ৪. Developer Name -->
+                    <div class="w-full!">
+                        <label class="block! text-sm! font-medium! text-gray-700!">Developer Name</label>
+                        <input type="text" id="developer_name" name="developer_name"
+                            placeholder="e.g. Navana Real Estate"
+                            class="mt-1! block! w-full! p-3! border! border-gray-300! rounded-md! shadow-sm! focus:ring-blue-500! focus:border-blue-500!">
+                    </div>
+
+                </div>
+            </div>
+
             <!-- Property Media Section -->
             <div class="w-full!">
                 <h3 class="text-xl! font-semibold! border-b-2! border-blue-500! pb-2! mb-6!">Property Images</h3>
