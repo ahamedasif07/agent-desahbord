@@ -9,10 +9,20 @@
 
 function astra_child_style()
 {
-	wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-	wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'));
 
-	// tailwind css enque
+	// Parent
+	wp_enqueue_style(
+		'astra-parent',
+		get_template_directory_uri() . '/style.css'
+	);
+
+	// Child
+	wp_enqueue_style(
+		'astra-child',
+		get_stylesheet_directory_uri() . '/style.css',
+		['astra-parent']
+	);
+
 	// Tailwind output
 	$tailwind_path = get_stylesheet_directory() . '/src/output.css';
 
@@ -22,15 +32,21 @@ function astra_child_style()
 		[],
 		file_exists($tailwind_path) ? filemtime($tailwind_path) : null
 	);
+
+
+	// Font Awesome
 	wp_enqueue_style(
 		'font-awesome',
 		'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
-		array(),
+		[],
 		'6.5.0'
 	);
 }
 
 add_action('wp_enqueue_scripts', 'astra_child_style');
+
+
+
 
 /**
  * Your code goes below.

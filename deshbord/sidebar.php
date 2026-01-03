@@ -7,8 +7,8 @@
         :root {
             --header-height: 60px;
             --sidebar-width: 250px;
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
+            --primary-color: #276737;
+            --secondary-color: #0a4e25;
             --text-light: #ecf0f1;
             --bg-light: #f4f6f7;
         }
@@ -199,9 +199,19 @@
         <header>
             <div class="brand">
                 <span class="menu-btn" onclick="toggleSidebar()">☰</span>
-                <h3>AdminPanel</h3>
+                <h3 class="text-white! text-3xl! font-semibold!">Admin Panel</h3>
             </div>
-            <div class="user-info">User: <b>Admin</b></div>
+            <div class="flex! items-center! gap-3!">
+                <!-- ইউজার ইমেজ -->
+                <img src="https://i.pravatar.cc/150?u=admin" alt="Admin"
+                    class="w-12! h-12! border border-gray-200 rounded-full! object-cover!">
+
+                <!-- নাম এবং এজেন্সি -->
+                <div class="flex! flex-col!">
+                    <span class="font-bold! text-gray-100! leading-tight!">Admin</span>
+                    <span class="text-sm! text-gray-100!">Elite Realty Agency</span>
+                </div>
+            </div>
         </header>
 
         <!-- Sidebar -->
@@ -209,7 +219,7 @@
             <nav>
                 <ul>
                     <!-- onclick ফাংশন দিয়ে আমরা কন্টেন্ট লোড করবো -->
-                    <li onclick="loadPage('dashboard', this)" class="active">Dashboard</li>
+                    <li onclick="loadPage('Creat_New', this)" class="active">Creat New</li>
                     <li onclick="loadPage('analytics', this)">Analytics</li>
                     <li onclick="loadPage('messages', this)">Messages</li>
                     <li onclick="loadPage('settings', this)">Settings</li>
@@ -231,68 +241,9 @@
         // ১. কন্টেন্ট ডাটাবেস (সিমুলেশন)
         // প্রফেশনাল ক্ষেত্রে এগুলো সার্ভার থেকে আসবে, কিন্তু এখানে আমরা অবজেক্ট ব্যবহার করছি
         const pages = {
-            dashboard: `
-                <h1>Dashboard Overview</h1>
-                <div class="content-card">
-                    <h3>Welcome Back!</h3>
-                    <p>This is your main dashboard. The header stays fixed, and this area scrolls independently.</p>
-                </div>
-                <div class="content-card" style="height: 300px;">
-                    <h3>Chart Area</h3>
-                    <p>Dummy chart placeholder. Scroll down to test the fixed header.</p>
-                </div>
-                <div class="content-card">
-                    <h3>Recent Activity</h3>
-                    <p>User logged in just now.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
-                <div class="content-card">
-                    <h3>More Data</h3>
-                    <p>Keep adding content, and only this gray area will scroll.</p>
-                </div>
+            Creat_New: `
+                <h1 class="font-bold!   text-2xl!">Creat New Property</h1>
+          <?php get_template_part('/deshbord/overview') ?>
             `,
             analytics: `
                 <h1>Analytics Reports</h1>
@@ -366,6 +317,6 @@
 
         // ৪. ডিফল্ট লোড (প্রথমবার পেজ ওপেন হলে)
         // Dashboard পেজটি লোড হবে
-        loadPage('dashboard', document.querySelector('aside li'));
+        loadPage('Creat_New', document.querySelector('aside li'));
     </script>
 </body>

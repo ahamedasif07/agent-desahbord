@@ -18,4 +18,3 @@
 </head>
 
 <body <?php body_class('bg-gray-50'); ?>>
-    <?php wp_body_open();
