@@ -18,7 +18,6 @@
 
             <form id="property-form" class="p-4 md:p-10 space-y-12">
 
-                <!-- Basic Information -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Basic Information</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -54,7 +53,6 @@
                     </div>
                 </div>
 
-                <!-- Location & Status -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Location & Status</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Property Specifications -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Specifications</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -141,7 +138,6 @@
                     </div>
                 </div>
 
-                <!-- Property Features -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Features</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-50 p-4 rounded-lg">
@@ -166,7 +162,6 @@
                     </div>
                 </div>
 
-                <!-- Construction Details -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Construction Details</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -200,26 +195,31 @@
                     </div>
                 </div>
 
-                <!-- Property Images -->
-                <div class="w-full">
-                    <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Images</h3>
-                    <div class="space-y-6">
+                <div class="w-full bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
+                    <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6 text-gray-800">Property Media
+                    </h3>
+
+                    <div class="space-y-8">
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Main Heading Image (Featured)
-                                <span class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Main Heading Image (Featured) <span class="text-red-500">*</span>
+                            </label>
                             <div class="flex items-center justify-center w-full">
                                 <label
-                                    class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                    class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-green-50 hover:border-green-400 transition duration-300">
                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <svg class="w-8 h-8 mb-3 text-gray-400" fill="none" stroke="currentColor"
+                                        <svg class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
                                             </path>
                                         </svg>
-                                        <p class="text-sm text-gray-500">Click to upload main property photo</p>
+                                        <p class="text-sm text-gray-500 font-medium">Click to upload main property photo
+                                        </p>
+                                        <p id="main-img-name" class="text-xs text-green-600 mt-2 font-semibold"></p>
                                     </div>
-                                    <input type="file" name="heading_image" class="hidden" accept="image/*" />
+                                    <input type="file" name="heading_image" class="hidden" accept="image/*"
+                                        onchange="updateFileName(this, 'main-img-name')" required />
                                 </label>
                             </div>
                         </div>
@@ -228,24 +228,46 @@
                             <label class="block text-sm font-medium text-gray-700 mb-4">Other View Images (Max
                                 6)</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                <input type="file" name="gallery_image_1" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
-                                <input type="file" name="gallery_image_2" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
-                                <input type="file" name="gallery_image_3" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
-                                <input type="file" name="gallery_image_4" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
-                                <input type="file" name="gallery_image_5" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
-                                <input type="file" name="gallery_image_6" accept="image/*"
-                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md">
+                                <?php for ($i = 1; $i <= 6; $i++): ?>
+                                    <div class="relative">
+                                        <input type="file" name="gallery_image_<?php echo $i; ?>" accept="image/*"
+                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                    </div>
+                                <?php endfor; ?>
                             </div>
+                        </div>
+
+                        <hr class="border-gray-100">
+
+                        <div class="w-full">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                Property Video Tour <span class="text-gray-400 font-normal italic">(Optional)</span>
+                            </label>
+                            <div class="flex items-center justify-center w-full">
+                                <label
+                                    class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-green-50 hover:border-green-400 transition duration-300">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg class="w-10 h-10 mb-3 text-blue-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                            </path>
+                                        </svg>
+                                        <p class="text-sm text-gray-500 font-medium">Click to upload property video
+                                            (MP4/MOV)</p>
+                                        <p id="video-file-name" class="text-xs text-green-600 mt-2 font-semibold"></p>
+                                    </div>
+                                    <input type="file" name="property_video" class="hidden"
+                                        accept="video/mp4,video/x-m4v,video/*"
+                                        onchange="updateFileName(this, 'video-file-name')" />
+                                </label>
+                            </div>
+                            <p class="mt-2 text-xs text-gray-400 italic text-center">Recommended: Max size 50MB, Aspect
+                                Ratio 16:9</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Description -->
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Description</h3>
                     <textarea id="property_description" name="property_description" rows="5"
@@ -263,13 +285,11 @@
         </div>
     </div>
 
-    <!-- SUCCESS MODAL -->
     <div id="successModal"
         style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;">
         <div
             style="background:white; border-radius:20px; max-width:500px; width:100%; padding:40px; text-align:center; box-shadow:0 25px 50px rgba(0,0,0,0.3); animation:modalBounce 0.5s ease-out;">
 
-            <!-- Success Icon with Animation -->
             <div
                 style="margin:0 auto 24px; width:100px; height:100px; background:linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; animation:iconPulse 1s ease-in-out infinite;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none"
@@ -279,7 +299,6 @@
                 </svg>
             </div>
 
-            <!-- Congratulations Text -->
             <h2
                 style="font-size:32px; font-weight:bold; color:#1f2937; margin:0 0 12px 0; font-family:'Segoe UI', sans-serif;">
                 🎉 Congratulations!
@@ -290,7 +309,6 @@
                 <span style="font-size:14px; color:#9ca3af;">Our team will review it shortly.</span>
             </p>
 
-            <!-- Action Buttons -->
             <div style="display:flex; gap:12px; flex-direction:column;">
                 <button onclick="closeSuccessModal()"
                     style="width:100%; background:linear-gradient(135deg, #10b981 0%, #059669 100%); color:white; font-weight:600; padding:14px 32px; border-radius:10px; border:none; cursor:pointer; font-size:16px; transition:transform 0.2s;"
@@ -338,7 +356,17 @@
         }
     </style>
 
-
+    <script>
+        // ফাংশন: ফাইল সিলেক্ট করলে সুন্দরভাবে ফাইলের নাম দেখাবে
+        function updateFileName(input, targetId) {
+            const target = document.getElementById(targetId);
+            if (input.files && input.files.length > 0) {
+                target.textContent = "✓ Selected: " + input.files[0].name;
+            } else {
+                target.textContent = "";
+            }
+        }
+    </script>
 
 </body>
 
