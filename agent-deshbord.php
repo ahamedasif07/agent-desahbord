@@ -15,7 +15,9 @@
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/src/output.css?ver=<?php echo time(); ?>">
 
 <div class="dashboard-wrapper">
-    <div class="py-40">
+    <div>
+
+
         <?php get_template_part('deshbord/sidebar'); ?>
     </div>
 </div>

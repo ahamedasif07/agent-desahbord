@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* --- CSS Reset & Variables --- */
         :root {
             --header-height: 60px;
             --sidebar-width: 250px;
@@ -20,7 +23,6 @@
             font-family: 'Segoe UI', sans-serif;
         }
 
-        /* --- Layout Grid --- */
         .dashboard-container {
             display: grid;
             grid-template-columns: var(--sidebar-width) 1fr;
@@ -33,7 +35,6 @@
             overflow: hidden;
         }
 
-        /* --- Header --- */
         header {
             grid-area: header;
             background-color: var(--primary-color);
@@ -43,7 +44,6 @@
             justify-content: space-between;
             padding: 0 20px;
             z-index: 101;
-            /* সাইডবারের উপরে থাকার জন্য */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
@@ -55,13 +55,11 @@
 
         .menu-btn {
             display: none;
-            /* ডেস্কটপে হাইড থাকবে */
             cursor: pointer;
             font-size: 24px;
             user-select: none;
         }
 
-        /* --- Sidebar (Aside) --- */
         aside {
             grid-area: aside;
             background-color: var(--secondary-color);
@@ -91,17 +89,14 @@
             border-left: 4px solid #3498db;
         }
 
-        /* --- Main Content --- */
         main {
             grid-area: main;
             background-color: var(--bg-light);
             padding: 20px;
             overflow-y: auto;
-            /* কন্টেন্ট বাড়লে স্ক্রল হবে */
             position: relative;
         }
 
-        /* কন্টেন্ট কার্ড ডিজাইন */
         .content-card {
             background: white;
             padding: 25px;
@@ -111,17 +106,6 @@
             animation: fadeIn 0.4s ease-in;
         }
 
-        h1 {
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-
-        /* এনিমেশন */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -134,7 +118,6 @@
             }
         }
 
-        /* --- Mobile Overlay (Black Shade) --- */
         .overlay {
             display: none;
             position: fixed;
@@ -148,11 +131,20 @@
             transition: opacity 0.3s;
         }
 
-        /* --- Responsive Design (Mobile) --- */
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .dashboard-container {
                 grid-template-columns: 1fr;
-                /* সাইডবারের কলাম বাদ */
                 grid-template-areas:
                     "header"
                     "main";
@@ -162,9 +154,6 @@
                 display: block;
             }
 
-            /* মোবাইল মেনু বাটন শো */
-
-            /* সাইডবার লুকানো এবং ফিক্সড পজিশন */
             aside {
                 position: fixed;
                 top: var(--header-height);
@@ -172,17 +161,13 @@
                 bottom: 0;
                 width: var(--sidebar-width);
                 transform: translateX(-100%);
-                /* স্ক্রিনের বাইরে */
                 box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
             }
 
-            /* যখন মেনু ওপেন হবে */
             aside.show {
                 transform: translateX(0);
-                /* স্ক্রিনের ভেতরে */
             }
 
-            /* ওভারলে ভিজিবল করা */
             .overlay.show {
                 display: block;
                 opacity: 1;
@@ -192,125 +177,128 @@
 </head>
 
 <body>
-
     <div class="dashboard-container">
-
         <!-- Header -->
         <header>
             <div class="brand">
                 <span class="menu-btn" onclick="toggleSidebar()">☰</span>
-                <h3 class="text-white! text-3xl! font-semibold!">Admin Panel</h3>
+                <h3 class="text-white text-3xl font-semibold">Admin Panel</h3>
             </div>
-            <div class="flex! items-center! gap-3!">
-                <!-- ইউজার ইমেজ -->
+            <div class="flex items-center gap-3">
                 <img src="https://i.pravatar.cc/150?u=admin" alt="Admin"
-                    class="w-12! h-12! border border-gray-200 rounded-full! object-cover!">
-
-                <!-- নাম এবং এজেন্সি -->
-                <div class="flex! flex-col!">
-                    <span class="font-bold! text-gray-100! leading-tight!">Admin</span>
-                    <span class="text-sm! text-gray-100!">Elite Realty Agency</span>
+                    class="w-12 h-12 border border-gray-200 rounded-full object-cover">
+                <div class="flex flex-col">
+                    <span class="font-bold text-gray-100 leading-tight">Admin</span>
+                    <span class="text-sm text-gray-100">Elite Realty Agency</span>
                 </div>
             </div>
         </header>
 
         <!-- Sidebar -->
         <aside id="sidebar">
-            <nav class="flex! h-full! flex-col! justify-between!  pb-3!">
+            <nav class="flex h-full flex-col justify-between pb-3">
                 <ul>
-                    <!-- onclick ফাংশন দিয়ে আমরা কন্টেন্ট লোড করবো -->
-                    <li onclick="loadPage('Creat_New', this)" class="active">Creat New</li>
-                    <li onclick="loadPage('analytics', this)">Analytics</li>
-                    <li onclick="loadPage('messages', this)">Messages</li>
-                    <li onclick="loadPage('settings', this)">Settings</li>
+                    <li data-page="create-new" class="active">Create New</li>
+                    <li data-page="analytics">Analytics</li>
+                    <li data-page="messages">Messages</li>
+                    <li data-page="settings">Settings</li>
                 </ul>
 
-                <div class="flex! justify-center!">
+                <div class="flex justify-center">
                     <button
-                        class="flex! w-[80%]! cursor-pointer! justify-center! items-center! gap-3! bg-red-600! hover:bg-red-700! text-white! font-bold! py-3! px-6! rounded-lg! transition! duration-300! shadow-md!">
-
-                        <!-- নতুন সুন্দর এবং মডার্ন Logout SVG -->
+                        class="flex w-[80%] cursor-pointer justify-center items-center gap-3 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 shadow-md">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
                             <polyline points="16 17 21 12 16 7"></polyline>
                             <line x1="21" x2="9" y1="12" y2="12"></line>
                         </svg>
-
-                        <span class="text-base!">Logout</span>
+                        <span class="text-base">Logout</span>
                     </button>
                 </div>
-
             </nav>
         </aside>
 
-        <!-- Overlay for Mobile -->
         <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
         <!-- Main Content -->
         <main id="main-content">
-            <!-- ডিফল্ট কন্টেন্ট লোড হবে জাভাস্ক্রিপ্ট দিয়ে -->
-        </main>
+            <div class="loading" id="loading">
+                <svg class="inline w-12 h-12 text-gray-200 animate-spin fill-green-600" viewBox="0 0 100 101"
+                    fill="none">
+                    <path
+                        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                        fill="currentColor" />
+                    <path
+                        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                        fill="currentFill" />
+                </svg>
+                <p class="mt-4 text-gray-600">Loading...</p>
+            </div>
 
+            <!-- Default content will be loaded by PHP -->
+            <div id="content-area">
+                <?php
+                // Default page - Create New
+                get_template_part('/deshbord/add-proparty');
+                ?>
+            </div>
+        </main>
     </div>
 
     <script>
-        // ১. কন্টেন্ট ডাটাবেস (সিমুলেশন)
-        // প্রফেশনাল ক্ষেত্রে এগুলো সার্ভার থেকে আসবে, কিন্তু এখানে আমরা অবজেক্ট ব্যবহার করছি
-        const pages = {
-            Creat_New: `
-                <h1 class="font-bold!   text-2xl!">Creat New Property</h1>
-          <?php get_template_part('/deshbord/add-proparty') ?>
-            `,
-            analytics: `
-                <h1>Analytics Reports</h1>
-                <div class="content-card">
-                    <h3>Traffic Stats</h3>
-                    <p>Visitors: 12,000 <br> Bounce Rate: 45%</p>
-                </div>
-                <div class="content-card" style="height: 400px;">
-                    <h3>Graph View</h3>
-                    <p>Detailed graph showing monthly growth.</p>
-                </div>
-            `,
-            messages: `
-                <h1>Messages</h1>
-                <?php get_template_part('/deshbord/messages') ?>
-                
-            `,
-            settings: `
-                <h1>Settings</h1>
-                 <?php get_template_part('/deshbord/setting') ?>
-               
-            `
-        };
-
-        // DOM Elements
-        const mainContent = document.getElementById('main-content');
+        const mainContent = document.getElementById('content-area');
+        const loading = document.getElementById('loading');
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
         const menuItems = document.querySelectorAll('aside li');
 
-        // ২. পেজ লোড ফাংশন
-        function loadPage(pageName, element) {
-            // কন্টেন্ট চেঞ্জ করা
-            if (pages[pageName]) {
-                mainContent.innerHTML = pages[pageName];
-            } else {
-                mainContent.innerHTML = "<h1>404</h1><p>Page not found</p>";
-            }
+        // Menu click handler
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const pageName = this.getAttribute('data-page');
+                loadPage(pageName, this);
+            });
+        });
 
-            // একটিভ ক্লাস হ্যান্ডেল করা (Sidebar highlight)
+        // Load page function
+        function loadPage(pageName, element) {
+            // Show loading
+            loading.classList.add('show');
+            mainContent.style.opacity = '0.3';
+
+            // Update active menu
             menuItems.forEach(item => item.classList.remove('active'));
             if (element) element.classList.add('active');
 
-            // মোবাইলে থাকলে পেজ চেঞ্জ হওয়ার পর মেনু বন্ধ করে দেওয়া
+            // Fetch content via AJAX
+            fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `action=load_dashboard_page&page=${pageName}`
+                })
+                .then(response => response.text())
+                .then(html => {
+                    mainContent.innerHTML = html;
+                    loading.classList.remove('show');
+                    mainContent.style.opacity = '1';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    mainContent.innerHTML =
+                        '<div class="content-card"><h1>Error</h1><p>Failed to load content.</p></div>';
+                    loading.classList.remove('show');
+                    mainContent.style.opacity = '1';
+                });
+
+            // Close sidebar on mobile
             if (window.innerWidth <= 768) {
                 closeSidebar();
             }
         }
 
-        // ৩. সাইডবার টগল ফাংশন (মোবাইলের জন্য)
         function toggleSidebar() {
             sidebar.classList.toggle('show');
             overlay.classList.toggle('show');
@@ -320,9 +308,5 @@
             sidebar.classList.remove('show');
             overlay.classList.remove('show');
         }
-
-        // ৪. ডিফল্ট লোড (প্রথমবার পেজ ওপেন হলে)
-        // Dashboard পেজটি লোড হবে
-        loadPage('Creat_New', document.querySelector('aside li'));
     </script>
 </body>

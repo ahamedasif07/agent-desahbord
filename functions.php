@@ -46,6 +46,35 @@ function astra_child_style()
 add_action('wp_enqueue_scripts', 'astra_child_style');
 
 
+// Dashboard AJAX Handler
+
+
+function load_dashboard_page_callback()
+{
+	$page = sanitize_text_field($_POST['page']);
+
+	switch ($page) {
+		case 'create-new':
+			get_template_part('/deshbord/add-proparty');
+			break;
+		case 'analytics':
+			get_template_part('/deshbord/analytics');
+			break;
+		case 'messages':
+			get_template_part('/deshbord/messages');
+			break;
+		case 'settings':
+			get_template_part('/deshbord/setting');
+			break;
+		default:
+			echo '<div class="content-card"><h1>404</h1><p>Page not found</p></div>';
+	}
+
+	wp_die(); // WordPress AJAX শেষ করার জন্য
+}
+add_action('wp_ajax_load_dashboard_page', 'load_dashboard_page_callback');
+add_action('wp_ajax_nopriv_load_dashboard_page', 'load_dashboard_page_callback');
+
 
 
 /**
