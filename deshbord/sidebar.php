@@ -311,5 +311,70 @@
     </script>
 
     <!-- mordal open js -->
+    <!-- add popartuy modal -->
+    <script>
+        // Form Submit Handler
+        document.getElementById('property-form').addEventListener('submit', function(e) {
+            e.preventDefault();
 
+            // Show success modal
+            const modal = document.getElementById('successModal');
+            modal.style.display = 'flex';
+
+            // Optional: Send form data to server
+            // const formData = new FormData(this);
+            // fetch('/submit-property', { method: 'POST', body: formData });
+        });
+
+        // Close Modal
+        function closeSuccessModal() {
+            document.getElementById('successModal').style.display = 'none';
+            // Redirect to dashboard or reload
+            // window.location.href = '/dashboard';
+        }
+
+        // Add Another Property
+        function addAnotherProperty() {
+            document.getElementById('successModal').style.display = 'none';
+            document.getElementById('property-form').reset();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSuccessModal();
+            }
+        });
+    </script>
+
+    <!-- masage mordal  js -->
+    <script>
+        function openMessageModal(name, message, image) {
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalMsg').innerText = message;
+            document.getElementById('modalImg').src = image;
+
+            const modal = document.getElementById('msgModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeMessageModal() {
+            const modal = document.getElementById('msgModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function sendReply(e) {
+            e.preventDefault();
+            const reply = document.getElementById('replyText').value;
+            alert("Reply sent: " + reply);
+            closeMessageModal();
+            document.getElementById('replyText').value = "";
+        }
+    </script>
 </body>

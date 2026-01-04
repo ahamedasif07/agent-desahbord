@@ -26,13 +26,13 @@
                             <label class="block text-sm font-medium text-gray-700">Property Name <span
                                     class="text-red-500">*</span></label>
                             <input type="text" id="property_name" name="property_name"
-                                placeholder="e.g. Concrete Esteem" required
+                                placeholder="e.g. Concrete Esteem"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Property Type <span
                                     class="text-red-500">*</span></label>
-                            <select id="property_type" name="property_type" required
+                            <select id="property_type" name="property_type"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                                 <option value="">Select Type</option>
                                 <option value="Apartment">Apartment/Flats</option>
@@ -43,7 +43,7 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Total Price (BDT) <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="total_price" name="total_price" placeholder="e.g. 3.15 Cr." required
+                            <input type="text" id="total_price" name="total_price" placeholder="e.g. 3.15 Cr."
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
@@ -61,13 +61,13 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">City / District <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="city" name="city" placeholder="e.g. Dhaka" required
+                            <input type="text" id="city" name="city" placeholder="e.g. Dhaka"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Area <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="area" name="area" placeholder="e.g. Uttara Sector 4" required
+                            <input type="text" id="area" name="area" placeholder="e.g. Uttara Sector 4"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
@@ -79,7 +79,6 @@
                             <label class="block text-sm font-medium text-gray-700">Full Address (House, Road No.) <span
                                     class="text-red-500">*</span></label>
                             <input type="text" id="full_address" name="full_address" placeholder="e.g. House 12, Road 5"
-                                required
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
@@ -90,7 +89,7 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Construction Status <span
                                     class="text-red-500">*</span></label>
-                            <select id="construction_status" name="construction_status" required
+                            <select id="construction_status" name="construction_status"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                                 <option value="">Select Status</option>
                                 <option value="Under Construction">Under Construction</option>
@@ -116,7 +115,7 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Size (sqft) <span
                                     class="text-red-500">*</span></label>
-                            <input type="number" name="prop_size" placeholder="2426" min="0" step="1" required
+                            <input type="number" name="prop_size" placeholder="2426" min="0" step="1"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md">
                         </div>
                         <div class="w-full">
@@ -220,7 +219,7 @@
                                         </svg>
                                         <p class="text-sm text-gray-500">Click to upload main property photo</p>
                                     </div>
-                                    <input type="file" name="heading_image" class="hidden" accept="image/*" required />
+                                    <input type="file" name="heading_image" class="hidden" accept="image/*" />
                                 </label>
                             </div>
                         </div>
@@ -250,7 +249,7 @@
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Description</h3>
                     <textarea id="property_description" name="property_description" rows="5"
-                        placeholder="Describe your property details here..." required
+                        placeholder="Describe your property details here..."
                         class="mt-1 block w-full p-4 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
                 </div>
 
@@ -339,44 +338,7 @@
         }
     </style>
 
-    <script>
-        // Form Submit Handler
-        document.getElementById('property-form').addEventListener('submit', function(e) {
-            e.preventDefault();
 
-            // Show success modal
-            const modal = document.getElementById('successModal');
-            modal.style.display = 'flex';
-
-            // Optional: Send form data to server
-            // const formData = new FormData(this);
-            // fetch('/submit-property', { method: 'POST', body: formData });
-        });
-
-        // Close Modal
-        function closeSuccessModal() {
-            document.getElementById('successModal').style.display = 'none';
-            // Redirect to dashboard or reload
-            // window.location.href = '/dashboard';
-        }
-
-        // Add Another Property
-        function addAnotherProperty() {
-            document.getElementById('successModal').style.display = 'none';
-            document.getElementById('property-form').reset();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Close modal with ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeSuccessModal();
-            }
-        });
-    </script>
 
 </body>
 
