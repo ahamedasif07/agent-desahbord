@@ -32,6 +32,8 @@ function astra_child_style()
 		[],
 		file_exists($tailwind_path) ? filemtime($tailwind_path) : null
 	);
+	// enque  jquray
+	wp_enqueue_script('jquery');
 
 
 	// Font Awesome

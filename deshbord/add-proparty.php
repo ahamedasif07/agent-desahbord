@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Property Form</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- ✅ এই লাইনটা যোগ করুন -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="bg-gray-100">
@@ -24,15 +26,16 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Property Name <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="property_name" name="property_name"
-                                placeholder="e.g. Concrete Esteem"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <input type="text" name="property_name" placeholder="e.g. Concrete Esteem"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Property Type <span
                                     class="text-red-500">*</span></label>
-                            <select id="property_type" name="property_type"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <select name="property_type"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                                 <option value="">Select Type</option>
                                 <option value="Apartment">Apartment/Flats</option>
                                 <option value="Land">Land</option>
@@ -42,12 +45,13 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Total Price (BDT) <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="total_price" name="total_price" placeholder="e.g. 3.15 Cr."
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <input type="text" name="total_price" placeholder="e.g. 3.15 Cr."
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Price per sqft</label>
-                            <input type="text" id="price_per_sqft" name="price_per_sqft" placeholder="e.g. 13,000"
+                            <input type="text" name="price_per_sqft" placeholder="e.g. 13,000"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                     </div>
@@ -59,36 +63,40 @@
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">City / District <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="city" name="city" placeholder="e.g. Dhaka"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <input type="text" name="city" placeholder="e.g. Dhaka"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Area <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="area" name="area" placeholder="e.g. Uttara Sector 4"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <input type="text" name="area" placeholder="e.g. Uttara Sector 4"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Zip / Post Code</label>
-                            <input type="text" id="zip_code" name="zip_code" placeholder="e.g. 1230"
+                            <input type="text" name="zip_code" placeholder="e.g. 1230"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Full Address (House, Road No.) <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" id="full_address" name="full_address" placeholder="e.g. House 12, Road 5"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <input type="text" name="full_address" placeholder="e.g. House 12, Road 5"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Map View Link</label>
-                            <input type="url" id="map_link" name="map_link" placeholder="Google Map Link"
+                            <input type="url" name="map_link" placeholder="Google Map Link"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Construction Status <span
                                     class="text-red-500">*</span></label>
-                            <select id="construction_status" name="construction_status"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <select name="construction_status"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                                 <option value="">Select Status</option>
                                 <option value="Under Construction">Under Construction</option>
                                 <option value="Ready">Ready</option>
@@ -97,7 +105,7 @@
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Transaction Type</label>
-                            <select id="transaction_type" name="transaction_type"
+                            <select name="transaction_type"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                                 <option value="New">New</option>
                                 <option value="Resale">Resale</option>
@@ -113,7 +121,7 @@
                             <label class="block text-sm font-medium text-gray-700">Size (sqft) <span
                                     class="text-red-500">*</span></label>
                             <input type="number" name="prop_size" placeholder="2426" min="0" step="1"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md">
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md" required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Bedrooms</label>
@@ -141,23 +149,23 @@
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Features</h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-50 p-4 rounded-lg">
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features" value="Mosque"
-                                class="w-4 h-4"> <span>Mosque</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
+                                value="Mosque" class="w-4 h-4"> <span>Mosque</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
                                 value="Security" class="w-4 h-4"> <span>Security</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features" value="Lift"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]" value="Lift"
                                 class="w-4 h-4"> <span>Lift</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
                                 value="Fire Exit" class="w-4 h-4"> <span>Fire Exit</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
                                 value="Parking" class="w-4 h-4"> <span>Parking</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
                                 value="Generator" class="w-4 h-4"> <span>Generator</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features" value="CCTV"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]" value="CCTV"
                                 class="w-4 h-4"> <span>CCTV</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features" value="Gym"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]" value="Gym"
                                 class="w-4 h-4"> <span>Gym</span></label>
-                        <label class="flex items-center space-x-2"><input type="checkbox" name="features"
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="features[]"
                                 value="Swimming Pool" class="w-4 h-4"> <span>Swimming Pool</span></label>
                     </div>
                 </div>
@@ -167,13 +175,12 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Year Built / Handover Date</label>
-                            <input type="text" id="handover_date" name="handover_date"
-                                placeholder="e.g. 2024 or Dec 2025"
+                            <input type="text" name="handover_date" placeholder="e.g. 2024 or Dec 2025"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Building Type</label>
-                            <select id="building_type" name="building_type"
+                            <select name="building_type"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                                 <option value="RCC">RCC Frame Structure</option>
                                 <option value="Steel">Steel Structure</option>
@@ -182,14 +189,12 @@
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Front Road Width (ft)</label>
-                            <input type="number" id="road_width" name="road_width" placeholder="e.g. 40" min="0"
-                                step="1"
+                            <input type="number" name="road_width" placeholder="e.g. 40" min="0" step="1"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Developer Name</label>
-                            <input type="text" id="developer_name" name="developer_name"
-                                placeholder="e.g. Navana Real Estate"
+                            <input type="text" name="developer_name" placeholder="e.g. Navana Real Estate"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
                         </div>
                     </div>
@@ -228,12 +233,18 @@
                             <label class="block text-sm font-medium text-gray-700 mb-4">Other View Images (Max
                                 6)</label>
                             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                <?php for ($i = 1; $i <= 6; $i++): ?>
-                                    <div class="relative">
-                                        <input type="file" name="gallery_image_<?php echo $i; ?>" accept="image/*"
-                                            class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
-                                    </div>
-                                <?php endfor; ?>
+                                <input type="file" name="gallery_image_1" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                <input type="file" name="gallery_image_2" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                <input type="file" name="gallery_image_3" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                <input type="file" name="gallery_image_4" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                <input type="file" name="gallery_image_5" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
+                                <input type="file" name="gallery_image_6" accept="image/*"
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-md transition cursor-pointer">
                             </div>
                         </div>
 
@@ -270,13 +281,12 @@
 
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Description</h3>
-                    <textarea id="property_description" name="property_description" rows="5"
-                        placeholder="Describe your property details here..."
+                    <textarea name="property_description" rows="5" placeholder="Describe your property details here..."
                         class="mt-1 block w-full p-4 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
                 </div>
 
                 <div class="flex justify-end pt-6">
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                         class="w-full md:w-64 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-lg transition duration-300 shadow-md">
                         Post Property
                     </button>
@@ -285,6 +295,7 @@
         </div>
     </div>
 
+    <!-- Success Modal -->
     <div id="successModal"
         style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;">
         <div
@@ -357,7 +368,7 @@
     </style>
 
     <script>
-        // ফাংশন: ফাইল সিলেক্ট করলে সুন্দরভাবে ফাইলের নাম দেখাবে
+        // ফাইল সিলেক্ট করলে নাম দেখাবে
         function updateFileName(input, targetId) {
             const target = document.getElementById(targetId);
             if (input.files && input.files.length > 0) {
@@ -366,6 +377,49 @@
                 target.textContent = "";
             }
         }
+
+
+
+        // AJAX Form Submit
+        $(document).ready(function() {
+            $('#property-form').on('submit', function(e) {
+                e.preventDefault();
+
+                let btn = $('#submitBtn');
+                btn.prop('disabled', true).text('Processing...');
+
+                let formData = new FormData(this);
+                formData.append('submit', '1');
+
+                $.ajax({
+                    url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/property-submit.php', // ✅ এটা সঠিক path দিন
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Response:', response);
+
+                        if (response.status === 'success') {
+                            $('#successModal').css('display', 'flex');
+                            $('#property-form')[0].reset();
+                            $('#main-img-name, #video-file-name').text('');
+                        } else {
+                            alert('Error: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', error);
+                        console.log('Response Text:', xhr.responseText);
+                        alert('Something went wrong. Check console for details.');
+                    },
+                    complete: function() {
+                        btn.prop('disabled', false).text('Post Property');
+                    }
+                });
+            });
+        });
     </script>
 
 </body>

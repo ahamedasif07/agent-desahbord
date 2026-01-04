@@ -182,11 +182,11 @@
         <header>
             <div class="brand">
                 <span class="menu-btn" onclick="toggleSidebar()">☰</span>
-                <h3 class="text-white text-3xl font-semibold">Admin Panel</h3>
+                <h3 class="text-white text-2xl md:text-3xl font-semibold">Admin Panel</h3>
             </div>
             <div class="flex items-center gap-3">
                 <img src="https://i.pravatar.cc/150?u=admin" alt="Admin"
-                    class="w-12 h-12 border border-gray-200 rounded-full object-cover">
+                    class="md:w-12 md:h-12 w-10 h-10 border border-gray-200 rounded-full object-cover">
                 <div class="flex flex-col">
                     <span class="font-bold text-gray-100 leading-tight">Admin</span>
                     <span class="text-sm text-gray-100">Elite Realty Agency</span>
