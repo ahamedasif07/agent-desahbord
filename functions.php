@@ -56,11 +56,11 @@ function load_dashboard_page_callback()
 	$page = sanitize_text_field($_POST['page']);
 
 	switch ($page) {
-		case 'Overall':
-			get_template_part('/deshbord/overall');
-			break;
 		case 'create-new':
 			get_template_part('/deshbord/add-proparty');
+			break;
+		case 'Listed-proparty':
+			get_template_part('/deshbord/listed-proparty');
 			break;
 		case 'analytics':
 			get_template_part('/deshbord/analytics');
