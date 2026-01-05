@@ -223,8 +223,7 @@
                                         </p>
                                         <p id="main-img-name" class="text-xs text-green-600 mt-2 font-semibold"></p>
                                     </div>
-                                    <input type="file" name="heading_image" class="hidden" accept="image/*"
-                                        onchange="updateFileName(this, 'main-img-name')" required />
+                                    <input type="file" name="heading_image" class="hidden" accept="image/*" required />
                                 </label>
                             </div>
                         </div>
@@ -368,15 +367,28 @@
     </style>
 
     <script>
-        // ফাইল সিলেক্ট করলে নাম দেখাবে
-        function updateFileName(input, targetId) {
-            const target = document.getElementById(targetId);
-            if (input.files && input.files.length > 0) {
-                target.textContent = "✓ Selected: " + input.files[0].name;
-            } else {
-                target.textContent = "";
+        // ফাইল সিলেক্ট করলে নাম দেখানোর জন্য (Event Delegation)
+        $(document).on('change', 'input[type="file"]', function() {
+            let input = $(this);
+            let fileName = input[0].files.length > 0 ? input[0].files[0].name : "";
+            let targetId = "";
+
+            // কোন ইনপুট পরিবর্তন হয়েছে তা চেক করা
+            if (input.attr('name') === 'heading_image') {
+                targetId = "main-img-name";
+            } else if (input.attr('name') === 'property_video') {
+                targetId = "video-file-name";
             }
-        }
+
+            // যদি টার্গেট আইডি থাকে তবে নাম বসানো
+            if (targetId !== "") {
+                if (fileName !== "") {
+                    $('#' + targetId).text("✓ Selected: " + fileName);
+                } else {
+                    $('#' + targetId).text("");
+                }
+            }
+        });
 
 
 
