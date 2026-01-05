@@ -16,7 +16,7 @@ ini_set('display_errors', 0); // ১ দিলে ব্রাউজারে �
 header('Content-Type: application/json');
 
 // ১. ডাটাবেজ কানেকশন
-$conn = new mysqli("localhost", "root", "", "hidan");
+$conn = new mysqli("localhost", "root", "", "agent-dashbord");
 
 // কানেকশন চেক
 if ($conn->connect_error) {

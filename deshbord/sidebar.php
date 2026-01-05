@@ -198,7 +198,8 @@
         <aside id="sidebar">
             <nav class="flex h-full flex-col justify-between pb-3">
                 <ul>
-                    <li data-page="create-new" class="active">Create New</li>
+                    <li data-page="Overall" class="active">Overall</li>
+                    <li data-page="create-new">Create New</li>
                     <li data-page="analytics">Analytics</li>
                     <li data-page="messages">Messages</li>
                     <li data-page="settings">Settings</li>
@@ -240,7 +241,7 @@
             <div id="content-area">
                 <?php
                 // Default page - Create New
-                get_template_part('/deshbord/add-proparty');
+                get_template_part('/deshbord/overall');
                 ?>
             </div>
         </main>
