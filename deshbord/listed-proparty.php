@@ -1,21 +1,28 @@
 <?php
-// ডাটাবেজ কানেকশন
+// ডাটাবেজ কানেকশন (চেক করুন ইউজার ও পাসওয়ার্ড ঠিক আছে কিনা)
 $conn = new mysqli("localhost", "root", "", "agent-dashbord");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 $conn->set_charset("utf8mb4");
 
-// নতুন ডাটা আগে দেখানোর জন্য ORDER BY id DESC
+// সব ডাটা দেখানোর জন্য কুয়েরি
 $sql = "SELECT * FROM properties ORDER BY id DESC";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+if ($result && $result->num_rows > 0) {
+    // লুপের মাধ্যমে সব ডাটা প্রিন্ট করা
     while ($row = $result->fetch_assoc()) {
-        // ইমেজ পাথ ঠিক করা ( uploads ফোল্ডার থেকে)
-        $image_path = "uploads/" . $row['heading_image'];
-        if (empty($row['heading_image'])) {
+        $image_name = !empty($row['heading_image']) ? $row['heading_image'] : '';
+        $image_path = "uploads/" . $image_name;
+
+        // ফাইলটি আসলে ফোল্ডারে আছে কিনা চেক করা
+        if (empty($image_name)) {
             $image_path = "https://via.placeholder.com/400x300?text=No+Image";
         }
 ?>
-        <!-- প্রপার্টি কার্ড -->
         <div
             class="flex flex-col md:flex-row bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition duration-300 max-w-4xl mx-auto my-5">
             <div class="md:w-1/3 h-52 md:h-auto overflow-hidden">
@@ -34,13 +41,15 @@ if ($result->num_rows > 0) {
                         <?php echo $row['prop_size']; ?> sqft
                     </p>
                 </div>
-                <div class="mt-4">
-                    <a href="#" class="inline-block bg-blue-600 text-white font-medium py-2 px-6 rounded-lg">Details Dekhun</a>
+                <div class="mt-4 flex gap-2">
+                    <a href="#" class="bg-blue-600 text-white py-2 px-6 rounded-lg">Details</a>
+                    <button onclick="deleteProperty(<?php echo $row['id']; ?>)"
+                        class="bg-red-500 text-white py-2 px-6 rounded-lg">Delete</button>
                 </div>
             </div>
         </div>
 <?php
-    }
+    } // লুপ শেষ
 } else {
     echo "<p class='text-center text-gray-500 py-10'>No properties found yet.</p>";
 }

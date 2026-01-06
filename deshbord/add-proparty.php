@@ -366,73 +366,7 @@
         }
     </style>
 
-    <script>
-        // ফাইল সিলেক্ট করলে নাম দেখানোর জন্য (Event Delegation)
-        $(document).on('change', 'input[type="file"]', function() {
-            let input = $(this);
-            let fileName = input[0].files.length > 0 ? input[0].files[0].name : "";
-            let targetId = "";
 
-            // কোন ইনপুট পরিবর্তন হয়েছে তা চেক করা
-            if (input.attr('name') === 'heading_image') {
-                targetId = "main-img-name";
-            } else if (input.attr('name') === 'property_video') {
-                targetId = "video-file-name";
-            }
-
-            // যদি টার্গেট আইডি থাকে তবে নাম বসানো
-            if (targetId !== "") {
-                if (fileName !== "") {
-                    $('#' + targetId).text("✓ Selected: " + fileName);
-                } else {
-                    $('#' + targetId).text("");
-                }
-            }
-        });
-
-
-
-        // AJAX Form Submit
-        $(document).ready(function() {
-            $('#property-form').on('submit', function(e) {
-                e.preventDefault();
-
-                let btn = $('#submitBtn');
-                btn.prop('disabled', true).text('Processing...');
-
-                let formData = new FormData(this);
-                formData.append('submit', '1');
-
-                $.ajax({
-                    url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/property-submit.php', // ✅ এটা সঠিক path দিন
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log('Response:', response);
-
-                        if (response.status === 'success') {
-                            $('#successModal').css('display', 'flex');
-                            $('#property-form')[0].reset();
-                            $('#main-img-name, #video-file-name').text('');
-                        } else {
-                            alert('Error: ' + response.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('AJAX Error:', error);
-                        console.log('Response Text:', xhr.responseText);
-                        alert('Something went wrong. Check console for details.');
-                    },
-                    complete: function() {
-                        btn.prop('disabled', false).text('Post Property');
-                    }
-                });
-            });
-        });
-    </script>
 
 </body>
 
