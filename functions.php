@@ -68,6 +68,9 @@ function load_dashboard_page_callback()
 		case 'messages':
 			get_template_part('/deshbord/messages');
 			break;
+		case 'details':
+			get_template_part('/deshbord/proparty-details');
+			break;
 		case 'settings':
 			get_template_part('/deshbord/setting');
 			break;
