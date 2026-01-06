@@ -65,7 +65,7 @@ $(document).ready(function() {
             url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/property-submit.php', // ✅ এটা সঠিক path দিন
             type: 'POST',
             data: formData,
-            contentType: 'applacation/json',
+            contentType: false,
             processData: false,
             dataType: 'json',
             success: function(response) {
@@ -165,24 +165,19 @@ $(document).ready(function() {
 function deleteProperty(id) {
     if (confirm("Are you sure you want to delete this property?")) {
         $.ajax({
-            // URL টি নিশ্চিত করুন। আপনার থিম ডিরেক্টরি অনুযায়ী এটি সঠিক কি না দেখুন।
-            url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/delete-proparty.php',
+            url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/delete-property.php',
             type: 'POST',
             data: {
                 property_id: id
             },
             success: function(response) {
-                // PHP থেকে 'success' টেক্সট আসলে পেজ রিফ্রেশ হবে
-                if (response.trim() === 'success') {
-                    alert("Property deleted successfully!");
-                    location.reload();
-                } else {
-                    alert("Error: Could not delete the property.");
-                    console.log(response); // ভুলের কারণ কনসোলে দেখাবে
+                // ডিলিট সফল হলে লিস্ট রিফ্রেশ করবে
+                // আপনি চাইলে আপনার রিফ্রেশ ফাংশনটি এখানে আবার কল করতে পারেন
+                const activeMenu = $('aside li.active').data('page');
+                if (activeMenu === 'Listed-proparty') {
+                    // সরাসরি AJAX কল দিয়েও রিফ্রেশ করা যায়
+                    location.reload(); // অথবা refreshPropertyList() কল করুন
                 }
-            },
-            error: function(xhr, status, error) {
-                alert("AJAX Error: " + error);
             }
         });
     }
