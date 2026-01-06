@@ -42,7 +42,7 @@ if ($result && $result->num_rows > 0) {
                     </p>
                 </div>
                 <div class="mt-4 flex gap-2">
-                    <a href="#" class="bg-blue-600 text-white py-2 px-6 rounded-lg">Details</a>
+                    <a href="#" class="bg-green-600 text-white py-2 px-6 rounded-lg">Details</a>
                     <button onclick="deleteProperty(<?php echo $row['id']; ?>)"
                         class="bg-red-500 text-white py-2 px-6 rounded-lg">Delete</button>
                 </div>

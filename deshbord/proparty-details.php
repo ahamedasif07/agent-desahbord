@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concrete Esteem - Property Details</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body class="bg-gray-50">
+<div class="bg-gray-50">
 
     <!-- Header Section -->
     <div class="bg-green-700 text-white py-6 shadow-lg">
@@ -33,54 +23,17 @@
             <!-- Main Content - Left Side -->
             <div class="lg:col-span-2 space-y-6">
 
-                <!-- Image Gallery -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <!-- Main Image -->
-                    <div class="relative">
-                        <img id="mainImage" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800"
-                            alt="Property" class="w-full h-96 object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                                Featured
-                            </span>
-                        </div>
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                                Ready
-                            </span>
-                        </div>
-                    </div>
+                <!-- Image Gallery start-->
+                <?php get_template_part('/deshbord/proparty-details/image-galary') ?>
+                <!-- Image Gallery end-->
 
-                    <!-- Gallery Thumbnails -->
-                    <div class="grid grid-cols-3 md:grid-cols-6 gap-2 p-4 bg-gray-50">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition border-2 border-green-500">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition">
-                        <img onclick="changeImage(this.src)"
-                            src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=200"
-                            class="w-full h-20 object-cover rounded cursor-pointer hover:opacity-75 transition">
-                    </div>
-                </div>
-
-                <!-- Property Overview -->
+                <!-- Property Overview start-->
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-green-500 pb-2">
                         Property Overview
                     </h2>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-center p-4 hover:bg-green-50 bg-gray-50 rounded-lg">
                             <svg class="w-10 h-10 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -90,7 +43,7 @@
                             <p class="text-2xl font-bold text-gray-800">2426</p>
                             <p class="text-sm text-gray-600">Sqft</p>
                         </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-center p-4 hover:bg-green-50 bg-gray-50 rounded-lg">
                             <svg class="w-10 h-10 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -100,7 +53,7 @@
                             <p class="text-2xl font-bold text-gray-800">4</p>
                             <p class="text-sm text-gray-600">Bedrooms</p>
                         </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-center p-4 hover:bg-green-50 bg-gray-50 rounded-lg">
                             <svg class="w-10 h-10 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,7 +62,7 @@
                             <p class="text-2xl font-bold text-gray-800">5</p>
                             <p class="text-sm text-gray-600">Bathrooms</p>
                         </div>
-                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-center p-4 hover:bg-green-50 bg-gray-50 rounded-lg">
                             <svg class="w-10 h-10 mx-auto mb-2 text-green-600" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -121,8 +74,9 @@
                         </div>
                     </div>
                 </div>
+                <!-- Property Overview end-->
 
-                <!-- Property Description -->
+                <!-- Property Description start -->
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-green-500 pb-2">
                         Property Description
@@ -145,7 +99,7 @@
                         Ready for immediate possession!
                     </p>
                 </div>
-
+                <!-- Property Description end -->
                 <!-- Property Features -->
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b-2 border-green-500 pb-2">
@@ -280,13 +234,13 @@
 
                     <form class="space-y-4">
                         <input type="text" placeholder="Your Name" required
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full p-3 border border-gray-300 rounded-lg ">
                         <input type="email" placeholder="Your Email" required
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full p-3 border border-gray-300 rounded-lg ">
                         <input type="tel" placeholder="Your Phone" required
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full p-3 border border-gray-300 rounded-lg ">
                         <textarea rows="4" placeholder="Your Message" required
-                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                            class="w-full p-3 border border-gray-300 rounded-lg "></textarea>
                         <button type="submit"
                             class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition">
                             Send Message
@@ -366,7 +320,15 @@
                                 </path>
                             </svg>
                         </button>
-                        <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg transition">
+                        <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg transition">
                             <svg class="w-5 h-5 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.
+                                <path
+                                    d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
