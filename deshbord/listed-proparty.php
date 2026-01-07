@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Template Name: Agent Dashboard Property List
+ */
+
 // ডাটাবেজ কানেকশন
 $conn = new mysqli("localhost", "root", "", "agent-dashbord");
 if ($conn->connect_error) {
@@ -6,23 +11,30 @@ if ($conn->connect_error) {
 }
 $conn->set_charset("utf8mb4");
 
+// ডাটা নিয়ে আসা
 $sql = "SELECT * FROM properties ORDER BY id DESC";
 $result = $conn->query($sql);
 
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $image_name = !empty($row['heading_image']) ? $row['heading_image'] : '';
-        $image_path = "uploads/" . $image_name;
-        if (empty($image_name)) {
+
+        // ইমেজ পাথ লজিক: চাইল্ড থিম > deshbord > uploads
+        if (!empty($image_name)) {
+            // আপনার ফোল্ডারের বানান 'deshbord' হলে এটাই রাখুন
+            $image_path = get_stylesheet_directory_uri() . "/deshbord/uploads/" . $image_name;
+        } else {
             $image_path = "https://via.placeholder.com/400x300?text=No+Image";
         }
 ?>
         <div id="property-card-<?php echo $row['id']; ?>"
             class="group flex flex-col md:flex-row bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-green-200 transition-all duration-300 max-w-4xl mx-auto my-6">
 
-            <div class="md:w-72 lg:w-80 h-56 md:h-auto overflow-hidden relative">
-                <img src="<?php echo $image_path; ?>"
-                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            <div class="md:w-72 lg:w-80 h-56 md:h-auto overflow-hidden relative bg-gray-100">
+                <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($row['property_name']); ?>"
+                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found';">
+
                 <div class="absolute top-4 left-4">
                     <span
                         class="bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-md">
@@ -75,10 +87,10 @@ if ($result && $result->num_rows > 0) {
                             class="flex-1 sm:flex-none border border-red-100 text-red-500 hover:bg-red-500 hover:text-white font-semibold py-2 px-5 rounded-xl transition-all duration-200 text-sm">
                             Delete
                         </button>
-                        <a href="edit-property.php?id=<?php echo $row['id']; ?>"
+                        <button onclick="openEditModal(<?php echo $row['id']; ?>)"
                             class="flex-1 sm:flex-none border border-green-100 text-green-600 hover:bg-green-600 hover:text-white font-semibold py-2 px-5 rounded-xl transition-all duration-200 text-sm text-center">
                             Edit
-                        </a>
+                        </button>
                     </div>
                     <a href="#"
                         class="hidden sm:inline-flex items-center text-green-600 font-bold hover:underline text-sm group/link">
@@ -99,5 +111,43 @@ if ($result && $result->num_rows > 0) {
         <p class='text-green-600 font-medium opacity-80'>No properties listed yet. Start by adding one!</p>
     </div>";
 }
+
 $conn->close();
 ?>
+
+<div id="editModal"
+    class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div class="p-6 border-b flex justify-between items-center sticky top-0 bg-white z-10">
+            <h2 class="text-2xl font-bold text-gray-800">Edit Property</h2>
+            <button onclick="closeModal()" class="text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+        </div>
+
+        <form id="edit-property-form" class="p-4 md:p-10 space-y-8" enctype="multipart/form-data">
+            <input type="hidden" name="property_id" id="edit_property_id">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Property Name</label>
+                    <input type="text" name="property_name" id="edit_name"
+                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Total Price (BDT)</label>
+                    <input type="text" name="total_price" id="edit_price"
+                        class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                        required>
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-6 border-t">
+                <button type="button" onclick="closeModal()"
+                    class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg">Cancel</button>
+                <button type="submit"
+                    class="px-10 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 shadow-md">Update
+                    Property</button>
+            </div>
+        </form>
+    </div>
+</div>

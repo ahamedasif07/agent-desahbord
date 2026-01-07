@@ -190,3 +190,54 @@
         }
     }
 </script>
+
+<!-- edit modal -->
+<script>
+    var $j = jQuery.noConflict();
+
+    function openEditModal(id) {
+        // ১. প্রথমে মোডাল দেখান
+        $j('#editModal').removeClass('hidden').addClass('flex');
+
+        // ২. ডাটা নিয়ে আসুন
+        $j.ajax({
+            // নিশ্চিত করুন এই পাথটি সঠিক
+            url: '<?php echo get_stylesheet_directory_uri(); ?>/deshbord/get-property-details.php',
+            type: 'GET',
+            data: {
+                id: id
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data) {
+                    // ইনপুট ফিল্ডের ID অনুযায়ী ডাটা বসানো
+                    $j('#edit_property_id').val(data.id);
+                    $j('#edit_name').val(data.property_name);
+                    $j('#edit_price').val(data.total_price);
+                }
+            },
+            error: function(xhr) {
+                console.log(xhr.responseText); // এরর চেক করার জন্য
+            }
+        });
+    }
+</script>
+
+<script>
+    function changeImage(imageUrl, element) {
+        // ১. মেইন ইমেজের সোর্স পরিবর্তন (আইডি থেকে '#' বাদ দেওয়া হয়েছে)
+        const mainImg = document.getElementById('main-display-image');
+        mainImg.src = imageUrl;
+
+        // ২. সব থাম্বনেইল থেকে গ্রিন বর্ডার রিমুভ করা
+        const allThumbs = document.querySelectorAll('.gallery-item');
+        allThumbs.forEach(thumb => {
+            thumb.classList.remove('border-green-500');
+            thumb.classList.add('border-transparent');
+        });
+
+        // ৩. ক্লিক করা ইমেজে (যা 'element' হিসেবে পাস হয়েছে) গ্রিন বর্ডার অ্যাড করা
+        element.classList.add('border-green-500');
+        element.classList.remove('border-transparent');
+    }
+</script>

@@ -84,7 +84,6 @@ add_action('wp_ajax_load_dashboard_page', 'load_dashboard_page_callback');
 add_action('wp_ajax_nopriv_load_dashboard_page', 'load_dashboard_page_callback');
 
 
-
 /**
  * Your code goes below.
  */
