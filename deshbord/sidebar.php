@@ -203,6 +203,7 @@
                     <li data-page="analytics">Analytics</li>
                     <li data-page="messages">Messages</li>
                     <li data-page="details">details</li>
+                    <li data-page="login">login</li>
                     <li data-page="settings">Settings</li>
                 </ul>
 

@@ -55,7 +55,10 @@ function load_dashboard_page_callback()
 {
 	$page = sanitize_text_field($_POST['page']);
 
+
+
 	switch ($page) {
+
 		case 'create-new':
 			get_template_part('/deshbord/add-proparty');
 			break;
@@ -70,6 +73,9 @@ function load_dashboard_page_callback()
 			break;
 		case 'details':
 			get_template_part('/deshbord/proparty-details');
+			break;
+		case 'login':
+			get_template_part('/deshbord/login');
 			break;
 		case 'settings':
 			get_template_part('/deshbord/setting');

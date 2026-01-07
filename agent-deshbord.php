@@ -191,6 +191,31 @@
     }
 </script>
 
+<!-- dynamic ly load data -->
+<!-- dynamic page routing -->
+<script>
+    // আপনার কার্ডের ক্লিক ইভেন্ট
+    $('.property-card').on('click', function() {
+        var propertyId = $(this).data('id'); // কার্ড থেকে ID নিন
+
+        $.ajax({
+            url: ajax_object.ajax_url, // আপনার AJAX URL
+            type: 'POST',
+            data: {
+                action: 'load_dashboard_page',
+                page: 'details', // আমরা details কেস-এ যাবো
+                property_id: propertyId // এই ID-টি পাঠাচ্ছি
+            },
+            success: function(response) {
+                $('#dashboard-content-area').html(response);
+            }
+        });
+    });
+</script>
+<script>
+
+</script>
+
 <!-- edit modal -->
 <script>
     var $j = jQuery.noConflict();

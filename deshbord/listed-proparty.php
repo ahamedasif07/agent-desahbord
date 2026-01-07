@@ -91,14 +91,14 @@ if ($result && $result->num_rows > 0) {
                             Edit
                         </button>
                     </div>
-                    <a href="property-details.php?id=<?php echo $row['id']; ?>"
-                        class="hidden sm:inline-flex items-center text-green-600 font-bold hover:underline text-sm group/link">
+                    <a data-id="<?php the_ID(); ?>"
+                        class="hidden property-card sm:inline-flex items-center text-green-600 font-bold hover:underline text-sm group/link">
                         View Details
                         <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
-                        </href=>
+                    </a>
                 </div>
             </div>
         </div>
