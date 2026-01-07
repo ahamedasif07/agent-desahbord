@@ -877,6 +877,9 @@
   .object-cover\! {
     object-fit: cover !important;
   }
+  .object-fill {
+    object-fit: fill;
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
@@ -1558,6 +1561,11 @@
       height: calc(var(--spacing) * 12);
     }
   }
+  .md\:h-64 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 64);
+    }
+  }
   .md\:h-auto {
     @media (width >= 48rem) {
       height: auto;
@@ -1576,6 +1584,11 @@
   .md\:w-64\! {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 64) !important;
+    }
+  }
+  .md\:w-68 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 68);
     }
   }
   .md\:w-72 {
@@ -1682,6 +1695,11 @@
   .lg\:col-span-2 {
     @media (width >= 64rem) {
       grid-column: span 2 / span 2;
+    }
+  }
+  .lg\:h-72 {
+    @media (width >= 64rem) {
+      height: calc(var(--spacing) * 72);
     }
   }
   .lg\:w-80 {

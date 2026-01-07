@@ -226,6 +226,7 @@
 <script>
     function changeImage(imageUrl, element) {
         // ১. মেইন ইমেজের সোর্স পরিবর্তন (আইডি থেকে '#' বাদ দেওয়া হয়েছে)
+        console.log(imageUrl);
         const mainImg = document.getElementById('main-display-image');
         mainImg.src = imageUrl;
 

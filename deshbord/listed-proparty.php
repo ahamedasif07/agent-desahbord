@@ -29,8 +29,7 @@ if ($result && $result->num_rows > 0) {
 ?>
         <div id="property-card-<?php echo $row['id']; ?>"
             class="group flex flex-col md:flex-row bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-green-200 transition-all duration-300 max-w-4xl mx-auto my-6">
-
-            <div class="md:w-72 lg:w-80 h-56 md:h-auto overflow-hidden relative bg-gray-100">
+            <div class="md:w-72 lg:w-80 h-56 md:h-64 lg:h-72 overflow-hidden relative bg-gray-100 group">
                 <img src="<?php echo $image_path; ?>" alt="<?php echo htmlspecialchars($row['property_name']); ?>"
                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found';">
@@ -92,14 +91,14 @@ if ($result && $result->num_rows > 0) {
                             Edit
                         </button>
                     </div>
-                    <a href="#"
+                    <a href="property-details.php?id=<?php echo $row['id']; ?>"
                         class="hidden sm:inline-flex items-center text-green-600 font-bold hover:underline text-sm group/link">
                         View Details
                         <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
-                    </a>
+                        </href=>
                 </div>
             </div>
         </div>
