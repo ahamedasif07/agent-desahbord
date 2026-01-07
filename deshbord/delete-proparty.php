@@ -1,5 +1,4 @@
 <?php
-// ডাটাবেজ কানেকশন
 $conn = new mysqli("localhost", "root", "", "agent-dashbord");
 
 if ($conn->connect_error) {
@@ -7,16 +6,14 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST['property_id'])) {
-    $id = intval($_POST['property_id']); // সিকিউরিটির জন্য intval ব্যবহার করুন
+    $id = intval($_POST['property_id']);
 
-    // ডাটা ডিলিট করার কুয়েরি
     $sql = "DELETE FROM properties WHERE id = $id";
 
     if ($conn->query($sql) === TRUE) {
-        echo "success";
+        echo "success"; // জাভাস্ক্রিপ্ট এই 'success' লেখাটি চেক করবে
     } else {
-        echo "error: " . $conn->error;
+        echo "error";
     }
 }
-
 $conn->close();
