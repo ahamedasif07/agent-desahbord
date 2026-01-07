@@ -69,13 +69,15 @@
                 processData: false,
                 dataType: 'json',
                 success: function(response) {
-                    console.log('Response:', response);
-
                     if (response.status === 'success') {
+                        // ১. শুধুমাত্র সফল হলেই মডাল দেখাবে
                         $('#successModal').css('display', 'flex');
+                        // ২. ফর্ম খালি করে দিবে
                         $('#property-form')[0].reset();
+                        // ৩. ফাইলের নামগুলো মুছে দিবে
                         $('#main-img-name, #video-file-name').text('');
                     } else {
+                        // ডাটাবেজে সেভ না হলে এরর দেখাবে
                         alert('Error: ' + response.message);
                     }
                 },
@@ -118,7 +120,7 @@
         }
 
         // ২. প্রতি ১০ সেকেন্ড পরপর চেক করবে
-        setInterval(refreshPropertyList, 10000);
+        setInterval(refreshPropertyList, 5000);
 
         // ৩. প্রপার্টি সাবমিট হ্যান্ডলার (Event Delegation)
         $(document).on('submit', '#property-form', function(e) {

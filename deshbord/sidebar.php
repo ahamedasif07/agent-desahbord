@@ -316,7 +316,7 @@
     <!-- add popartuy modal -->
     <script>
         // Form Submit Handler
-        document.getElementById('property-form').addEventListener('submit', function(e) {
+        $('#property-form').on('submit', function(e) {
             e.preventDefault();
 
             // Show success modal
@@ -328,22 +328,20 @@
             // fetch('/submit-property', { method: 'POST', body: formData });
         });
 
-        // Close Modal
+        // মডাল বন্ধ করার ফাংশন
         function closeSuccessModal() {
-            document.getElementById('successModal').style.display = 'none';
-            // Redirect to dashboard or reload
-            // window.location.href = '/dashboard';
+            $('#successModal').hide();
         }
 
-        // Add Another Property
+        // নতুন প্রপার্টি অ্যাড করার জন্য স্ক্রল আপ
         function addAnotherProperty() {
-            document.getElementById('successModal').style.display = 'none';
-            document.getElementById('property-form').reset();
+            $('#successModal').hide();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
+
 
         // Close modal with ESC key
         document.addEventListener('keydown', function(e) {
