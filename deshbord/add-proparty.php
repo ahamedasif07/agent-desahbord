@@ -43,9 +43,26 @@
                             </select>
                         </div>
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Total Price (BDT) <span
+                            <label class="block text-sm font-medium text-gray-700">Rental Price (BDT) <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" name="total_price" placeholder="e.g. 3.15 Cr."
+                            <input type="text" name="total_price" placeholder="e.g. 25,000"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-sm font-medium text-gray-700">Rental Period <span
+                                    class="text-red-500">*</span></label>
+                            <select name="rental_period"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
+                                <option value="Monthly">Per Month</option>
+                                <option value="Yearly">Per Year</option>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-sm font-medium text-gray-700">Security Deposit (BDT) <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" name="deposit_amount" placeholder="e.g. 50,000"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
@@ -75,21 +92,29 @@
                                 required>
                         </div>
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Zip / Post Code</label>
-                            <input type="text" name="zip_code" placeholder="e.g. 1230"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-                        </div>
-                        <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Full Address (House, Road No.) <span
+                            <label class="block text-sm font-medium text-gray-700">Availability Date <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" name="full_address" placeholder="e.g. House 12, Road 5"
+                            <input type="date" name="availability"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Map View Link</label>
-                            <input type="url" name="map_link" placeholder="Google Map Link"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
+                            <label class="block text-sm font-medium text-gray-700">Pet Policy <span
+                                    class="text-red-500">*</span></label>
+                            <select name="pet_policy"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
+                                <option value="Allowed">Pets Allowed</option>
+                                <option value="Not Allowed">Not Allowed</option>
+                                <option value="Small Pets Only">Small Pets Only</option>
+                            </select>
+                        </div>
+                        <div class="w-full">
+                            <label class="block text-sm font-medium text-gray-700">Full Address <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" name="full_address" placeholder="e.g. House 12, Road 5"
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Construction Status <span
@@ -97,18 +122,8 @@
                             <select name="construction_status"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
-                                <option value="">Select Status</option>
-                                <option value="Under Construction">Under Construction</option>
                                 <option value="Ready">Ready</option>
-                                <option value="Upcoming">Upcoming</option>
-                            </select>
-                        </div>
-                        <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Transaction Type</label>
-                            <select name="transaction_type"
-                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500">
-                                <option value="New">New</option>
-                                <option value="Resale">Resale</option>
+                                <option value="Under Construction">Under Construction</option>
                             </select>
                         </div>
                     </div>
