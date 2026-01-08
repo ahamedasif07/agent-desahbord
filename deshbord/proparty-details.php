@@ -269,45 +269,78 @@
                 </div>
 
                 <!-- Property Details Card -->
+                <!-- Property Details Card -->
                 <div class="bg-white rounded-xl shadow-lg p-6">
                     <h3 class="text-xl font-bold text-gray-800 mb-4 border-b-2 border-green-500 pb-2">
                         Property Details
                     </h3>
+
                     <div class="space-y-3">
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Property Type:</span>
                             <span class="font-semibold text-gray-800">Apartment</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Transaction:</span>
                             <span class="font-semibold text-gray-800">New</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Status:</span>
                             <span class="font-semibold text-green-600">Ready</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Year Built:</span>
                             <span class="font-semibold text-gray-800">2024</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Building Type:</span>
                             <span class="font-semibold text-gray-800">RCC Frame</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Road Width:</span>
                             <span class="font-semibold text-gray-800">40 ft</span>
                         </div>
+
                         <div class="flex justify-between py-2 border-b border-gray-100">
                             <span class="text-gray-600">Garage:</span>
                             <span class="font-semibold text-gray-800">1 Car</span>
                         </div>
+
+                        <!-- New Sections -->
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Deposit:</span>
+                            <span class="font-semibold text-gray-800">2 Months Rent</span>
+                        </div>
+
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Rental Period:</span>
+                            <span class="font-semibold text-gray-800">Minimum 1 Year</span>
+                        </div>
+
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Availability:</span>
+                            <span class="font-semibold text-green-600">Available Now</span>
+                        </div>
+
+                        <div class="flex justify-between py-2 border-b border-gray-100">
+                            <span class="text-gray-600">Pet Policy:</span>
+                            <span class="font-semibold text-red-500">Not Allowed</span>
+                        </div>
+
                         <div class="flex justify-between py-2">
                             <span class="text-gray-600">Developer:</span>
                             <span class="font-semibold text-gray-800">Navana Real Estate</span>
                         </div>
+
                     </div>
                 </div>
+
 
                 <!-- Share Property -->
                 <div class="bg-white rounded-xl shadow-lg p-6">

@@ -60,11 +60,18 @@
                             </select>
                         </div>
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Security Deposit (BDT) <span
+                            <label class="block text-sm font-medium text-gray-700">Security Deposit <span
                                     class="text-red-500">*</span></label>
-                            <input type="text" name="deposit_amount" placeholder="e.g. 50,000"
+                            <select name="deposit_amount"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
+                                <option value="">Select Deposit Period</option>
+                                <option value="1 Month">1 Month Rent</option>
+                                <option value="2 Months">2 Months Rent</option>
+                                <option value="3 Months">3 Months Rent</option>
+                                <option value="4 Months">4 Months Rent</option>
+                                <option value="Fixed Amount">Fixed Amount (Negotiable)</option>
+                            </select>
                         </div>
                         <div class="w-full">
                             <label class="block text-sm font-medium text-gray-700">Price per sqft</label>
@@ -75,32 +82,43 @@
                 </div>
 
                 <div class="w-full">
-                    <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Location & Status</h3>
+                    <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">
+                        Location & Status
+                    </h3>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">City / District <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                City / District <span class="text-red-500">*</span>
+                            </label>
                             <input type="text" name="city" placeholder="e.g. Dhaka"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Area <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Area <span class="text-red-500">*</span>
+                            </label>
                             <input type="text" name="area" placeholder="e.g. Uttara Sector 4"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Availability Date <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Availability Date <span class="text-red-500">*</span>
+                            </label>
                             <input type="date" name="availability"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Pet Policy <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Pet Policy <span class="text-red-500">*</span>
+                            </label>
                             <select name="pet_policy"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
@@ -109,16 +127,20 @@
                                 <option value="Small Pets Only">Small Pets Only</option>
                             </select>
                         </div>
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Full Address <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Full Address <span class="text-red-500">*</span>
+                            </label>
                             <input type="text" name="full_address" placeholder="e.g. House 12, Road 5"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
                         </div>
+
                         <div class="w-full">
-                            <label class="block text-sm font-medium text-gray-700">Construction Status <span
-                                    class="text-red-500">*</span></label>
+                            <label class="block text-sm font-medium text-gray-700">
+                                Construction Status <span class="text-red-500">*</span>
+                            </label>
                             <select name="construction_status"
                                 class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
                                 required>
@@ -126,8 +148,23 @@
                                 <option value="Under Construction">Under Construction</option>
                             </select>
                         </div>
+
+                        <!-- Google Map Link -->
+                        <div class="w-full md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700">
+                                Google Map Location Link <span class="text-red-500">*</span>
+                            </label>
+                            <input type="url" name="google_map_link" placeholder="https://maps.google.com/..."
+                                class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500"
+                                required>
+                            <p class="text-xs text-gray-500 mt-1">
+                                Paste the Google Maps share link of the property location
+                            </p>
+                        </div>
+
                     </div>
                 </div>
+
 
                 <div class="w-full">
                     <h3 class="text-xl font-semibold border-b-2 border-green-500 pb-2 mb-6">Property Specifications</h3>
