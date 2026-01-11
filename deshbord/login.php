@@ -1,36 +1,3 @@
-<!-- log in form -->
-<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-        <div class="bg-green-700 p-6 text-center">
-            <h2 class="text-3xl font-bold text-white">Welcome Back</h2>
-            <p class="text-green-100 mt-2">Login to manage your properties</p>
-        </div>
-
-        <form class="p-8 space-y-5">
-            <div>
-                <label class="block text-sm font-semibold text-gray-700">Email Address</label>
-                <input type="email" placeholder="agent@mail.com"
-                    class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition">
-            </div>
-            <div>
-                <div class="flex justify-between">
-                    <label class="block text-sm font-semibold text-gray-700">Password</label>
-                    <a href="#" class="text-sm text-green-600 hover:underline">Forgot?</a>
-                </div>
-                <input type="password" placeholder="••••••••"
-                    class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition">
-            </div>
-            <button
-                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg shadow-lg transform transition active:scale-95">
-                Login Now
-            </button>
-            <p class="text-center text-sm text-gray-600">
-                Don't have an account? <a href="#" class="text-green-600 font-bold hover:underline">Register</a>
-            </p>
-        </form>
-    </div>
-</div>
-
 <!-- registation form -->
 
 <div class="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-10">

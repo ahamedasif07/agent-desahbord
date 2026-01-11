@@ -251,7 +251,7 @@
 
     <script>
         const mainContent = document.getElementById('content-area');
-        const loading = document.getElementById('loading');
+
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('overlay');
         const menuItems = document.querySelectorAll('aside li');
@@ -266,9 +266,7 @@
 
         // Load page function
         function loadPage(pageName, element) {
-            // Show loading
-            loading.classList.add('show');
-            mainContent.style.opacity = '0.3';
+
 
             // Update active menu
             menuItems.forEach(item => item.classList.remove('active'));

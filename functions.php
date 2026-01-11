@@ -23,7 +23,8 @@ function astra_child_style()
 		['astra-parent']
 	);
 
-	// Tailwind output
+
+
 	$tailwind_path = get_stylesheet_directory() . '/src/output.css';
 
 	wp_enqueue_style(

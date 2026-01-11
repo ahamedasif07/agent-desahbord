@@ -101,6 +101,20 @@ $developer   = $conn->real_escape_string($_POST['developer_name'] ?? '');
 $desc        = $conn->real_escape_string($_POST['property_description'] ?? '');
 $features    = isset($_POST['features']) && is_array($_POST['features']) ? implode(", ", $_POST['features']) : "";
 
+// duplicete data chacking 
+$check_duplicate = $conn->prepare("SELECT id FROM properties WHERE property_name = ? AND full_address = ? LIMIT 1");
+$check_duplicate->bind_param("ss", $p_name, $address);
+$check_duplicate->execute();
+$result = $check_duplicate->get_result();
+
+if ($result->num_rows > 0) {
+    ob_end_clean();
+    echo json_encode(['status' => 'error', 'message' => 'এই প্রোপার্টিটি আগেই যুক্ত করা হয়েছে!']);
+    $check_duplicate->close();
+    $conn->close();
+    exit;
+}
+$check_duplicate->close();
 // ৫. ফাইল আপলোড হ্যান্ডলিং
 $upload_path = __DIR__ . "/uploads/";
 if (!file_exists($upload_path)) mkdir($upload_path, 0777, true);

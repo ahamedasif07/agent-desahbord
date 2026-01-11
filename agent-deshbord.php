@@ -191,7 +191,7 @@
     }
 </script>
 
-<!-- dynamic ly load data -->
+
 <!-- dynamic page routing -->
 <script>
     // আপনার কার্ডের ক্লিক ইভেন্ট
